@@ -1,0 +1,103 @@
+h1 {
+  font-size: 35px;
+  color: rgb(43, 43, 43);
+  display: inline;
+}
+h2 {
+  font-size: 25px;
+  color: rgb(85, 85, 85);
+  margin: 10px 0px 20px 0px;
+}
+body {
+  font-family: "Poppins";
+}
+.today-temp {
+  text-align: center;
+  font-size: 45px;
+  color: rgb(0, 89, 255);
+  margin: 20px 0px 30px 0px;
+  text-align: center;
+  font-weight: 400;
+  line-height: 1em;
+}
+.weather-details {
+  margin: 20px 0px 30px 0px;
+  font-weight: 200;
+  font-size: 16px;
+}
+.prediction {
+  margin: 20px 0px;
+  padding: 0px;
+  color: rgb(43, 43, 43);
+  text-align: center;
+}
+.emoji {
+  font-size: 35px;
+  color: rgb(43, 115, 248);
+}
+.temp {
+  font-size: 14px;
+  font-weight: 200;
+  color: rgb(43, 43, 43);
+}
+.col-1 {
+  padding: 0px;
+}
+.weather-app {
+  border: solid 1px #afb1b4;
+  border-radius: 10px;
+  width: 500px;
+  padding: 25px;
+  margin: 20px;
+}
+.form-field {
+  display: inline;
+  padding: 5px 12px;
+  margin: 12px 0px 12px 12px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.form-btn {
+  display: inline;
+  padding: 5px 12px;
+  margin: 12px 12px 12px 0px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: ease-in-out;
+}
+.geolocation-btn {
+  display: inline;
+  padding: 5px 12px;
+  margin: 12px 12px 12px 0px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #ffffff;
+  background-color: rgb(43, 115, 248);
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: ease-in-out;
+}
+.units {
+  text-decoration: none;
+  font-size: 45px;
+  position: relative;
+  transition: ease-in-out;
+}
+.geolocation-btn:hover {
+  background-color: rgb(44, 100, 204);
+}
+.form-btn:hover {
+  background-color: rgb(247, 247, 247);
+}

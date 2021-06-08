@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Weather app</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-app">
+        <form>
+          <div class="row" id="search-form">
+            <input
+              type="search"
+              placeholder="Type a city..."
+              class="col-7 form-field"
+              id="input-search-city"
+            />
+            <input type="submit" value="Search" class="col-2 form-btn" />
+            <input type="submit" value="GPS" class="col-2 geolocation-btn" />
+          </div>
+        </form>
+
+        <div class="row">
+          <div class="col pdc-day">
+            <h1 id="city">How´s out there?</h1>
+            <span id="country"> </span>
+            <h2 id="current-date">Saturday</h2>
+            <div class="row">
+              <div class="col-6 weather-details">
+                <div id="description"></div>
+                Humidity:
+                <span id="humidity"> </span>% <br />
+                Wind:
+                <span id="wind"> </span> m/s
+              </div>
+              <div class="col-6 today-temp">
+                ⛅<br />
+                <span id="today-temperature"> </span>
+
+                <span class="units"> °C </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row prediction">
+          <div class="col-2">
+            <div class="day">Sun</div>
+            <div class="emoji">☀</div>
+            <div class="temp">26/32°C</div>
+          </div>
+          <div class="col-3">
+            <div class="day">Mon</div>
+            <div class="emoji">☀</div>
+            <div class="temp">27/32°C</div>
+          </div>
+          <div class="col-2">
+            <div class="day">Tue</div>
+            <div class="emoji">🌦</div>
+            <div class="temp">25/30°C</div>
+          </div>
+          <div class="col-3">
+            <div class="day">Wed</div>
+            <div class="emoji">⛈</div>
+            <div class="temp">24/30°C</div>
+          </div>
+          <div class="col-2">
+            <div class="day">Thu</div>
+            <div class="emoji">☀</div>
+            <div class="temp">28/32°C</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>
