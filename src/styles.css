@@ -48,7 +48,7 @@ body {
   border-radius: 10px;
   width: 500px;
   padding: 25px;
-  margin: 20px;
+  margin-top: 20px;
 }
 .form-field {
   display: inline;
@@ -100,4 +100,10 @@ body {
 }
 .form-btn:hover {
   background-color: rgb(247, 247, 247);
+}
+.info {
+  font-size: 12px;
+  padding-top: 5px;
+  padding-left: 10px;
+  font-family: monospace;
 }
