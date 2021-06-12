@@ -91,9 +91,16 @@ body {
 }
 .units {
   text-decoration: none;
-  font-size: 45px;
+  font-size: 16px;
   position: relative;
   transition: ease-in-out;
+  top: -20px;
+}
+.f-unit {
+  text-decoration: none;
+}
+.f-unit:hover {
+  color: purple;
 }
 .geolocation-btn:hover {
   background-color: rgb(44, 100, 204);
