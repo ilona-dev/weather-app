@@ -38,7 +38,7 @@ function changeCity(event) {
 let searchCityForm = document.querySelector("#search-form");
 searchCityForm = addEventListener("submit", changeCity);
 
-// display weather conditions - step 2 (HW 5)
+// display weather conditions
 function displayWeather(response) {
   document.querySelector(`#city`).innerHTML = response.data.name;
   document.querySelector(`#country`).innerHTML = response.data.sys.country;
@@ -51,6 +51,18 @@ function displayWeather(response) {
   document.querySelector(`#humidity`).innerHTML = response.data.main.humidity;
   document.querySelector(`#wind`).innerHTML = Math.round(
     response.data.wind.speed
+  );
+
+  //icon
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  ); //necessary to change code attribute 01d
+
+  iconElement.setAttribute(
+    "alt",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].description}@2x.png`
   );
 }
 
