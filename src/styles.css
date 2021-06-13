@@ -96,10 +96,12 @@ body {
   transition: ease-in-out;
   top: -20px;
 }
-.f-unit {
+.f-unit,
+.c-unit {
   text-decoration: none;
 }
-.f-unit:hover {
+.f-unit:hover,
+.c-unit:hover {
   color: purple;
 }
 .geolocation-btn:hover {
@@ -116,4 +118,8 @@ body {
 }
 #description:first-letter {
   text-transform: capitalize;
+}
+.units .active {
+  color: black;
+  cursor: default;
 }
