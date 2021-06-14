@@ -1,32 +1,40 @@
 // Time and date display
 
-let today = new Date();
+function formatDate(now) {
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Satruday",
+  ];
+  let day = days[now.getDay()];
+
+  let hours = now.getHours(); //it returns only 1 digit number, e.g. 2 instead of 02 >> create if statement
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes(); //same thing as hours - it would return 14:5 instead of 14:05 >> if statement
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${day} ${hours}:${minutes}`;
+}
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+let now = new Date();
 let dateElement = document.querySelector("#current-date"); //use IDs, not elements!
-
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Satruday",
-];
-let dayIndex = today.getDay();
-
-let hours = today.getHours(); //it returns only 1 digit number, e.g. 2 instead of 02 >> create if statement
-if (hours < 10) {
-  hours = `0${hours}`;
-}
-let minutes = today.getMinutes(); //same thing as hours - it would return 14:5 instead of 14:05 >> if statement
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
-
-dateElement.innerHTML = `${days[dayIndex]} ${hours}:${minutes}`;
+dateElement.innerHTML = formatDate(now);
 
 // retrieve data from searched city
-// 1. HW week 5 - here we need to change the search engine - add the API call
+
 function changeCity(event) {
   event.preventDefault();
   let key = "9d6c954e679111c7fc0e3c0db6771c74";
