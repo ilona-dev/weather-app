@@ -1,4 +1,4 @@
-//1. Feature #1: In your project, display the current date and time using JavaScript: Tuesday 16:00
+// Time and date display
 
 let today = new Date();
 let dateElement = document.querySelector("#current-date"); //use IDs, not elements!
@@ -18,7 +18,7 @@ let hours = today.getHours(); //it returns only 1 digit number, e.g. 2 instead o
 if (hours < 10) {
   hours = `0${hours}`;
 }
-let minutes = today.getMinutes(); //same problem as hours - it would return 14:5 instead of 14:05 >> if statement
+let minutes = today.getMinutes(); //same thing as hours - it would return 14:5 instead of 14:05 >> if statement
 if (minutes < 10) {
   minutes = `0${minutes}`;
 }
@@ -52,6 +52,7 @@ function displayWeather(response) {
   document.querySelector(`#wind`).innerHTML = Math.round(
     response.data.wind.speed
   );
+  celsiusTemperature = response.data.main.temp;
 
   //icon
   let iconElement = document.querySelector("#icon");
@@ -86,8 +87,11 @@ let myLocationBtn = document.querySelector("#geolocation-btn"); //1
 myLocationBtn = addEventListener("submit", searchLocation);
 
 //fahrenheit conversion
+
 function displayFahrenheitTemp(event) {
   event.preventDefault();
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   let temperatureElement = document.querySelector("#today-temperature");
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
@@ -95,6 +99,8 @@ function displayFahrenheitTemp(event) {
 
 function displayCelsiusTemp(event) {
   event.preventDefault();
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
   let temperatureElement = document.querySelector("#today-temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
@@ -106,4 +112,3 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 let celsiusTemperature = null; //??? returning 0 degrees
-celsiusTemperature = response.data.main.temp;
