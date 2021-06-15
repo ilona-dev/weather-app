@@ -128,5 +128,6 @@ body {
 }
 .col-2,
 .col-3 {
-  padding: 0;
+  padding: 2px;
+  text-align: center;
 }

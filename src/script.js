@@ -119,13 +119,28 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
 
-let celsiusTemperature = null; //??? returning 0 degrees
+let celsiusTemperature = null; //preventing a bug - if the link clicked multiple times
 
 function displayForecast() {
+  //putting loop of html div col-2 through array and function
   let forecastElement = document.querySelector("#weather-forecast");
-  let forecastHTML = "";
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+            <div class="col-2">
+              <div class="day">${day}</div>
+              <div class="emoji">☀</div>
+              <div class="temp">
+                <span class="forecast-max-temp">26°</span> 32°
+              </div>
+            </div>
+          `;
+  });
 
-  forecastElement.innerHTML = ``; //put html inside html
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
-
 displayForecast(); //calling function
