@@ -131,3 +131,11 @@ body {
   padding: 2px;
   text-align: center;
 }
+.forecast-icon {
+  text-align: center;
+  font-size: 10px;
+}
+img {
+  text-align: center;
+  width: 80px;
+}
