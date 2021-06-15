@@ -120,3 +120,12 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 let celsiusTemperature = null; //??? returning 0 degrees
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#weather-forecast");
+  let forecastHTML = "";
+
+  forecastElement.innerHTML = ``; //put html inside html
+}
+
+displayForecast(); //calling function

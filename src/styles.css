@@ -123,3 +123,10 @@ body {
   color: black;
   cursor: default;
 }
+.forecast-max-temp {
+  font-weight: 400;
+}
+.col-2,
+.col-3 {
+  padding: 0;
+}
