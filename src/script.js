@@ -124,27 +124,36 @@ celsiusLink.addEventListener("click", displayCelsiusTemp);
 let celsiusTemperature = null; //preventing a bug - if the link clicked multiple times
 
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily; //response of API stored in variable
   //putting loop of html div col-2 through arrray and function
   let forecastElement = document.querySelector("#weather-forecast");
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+
   let forecastHTML = `<div class="row">`;
 
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    //looping through forecast variable (originally array of 8 upcoming days)
+    if (index < 6) {
+      //displaying only 6 days forecast
+      forecastHTML =
+        forecastHTML +
+        `
             <div class="col-2">
-              <div class="day">${day}</div>
+              <div class="day">${formatDay(forecastDay.dt)}</div>
+              
               <div class="forecast-icon"><img
-              src="http://openweathermap.org/img/wn/50d@2x.png"
+              src="http://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png"
               alt=""
               /></div>
               <div class="temp">
-                <span class="forecast-max-temp">26°</span> 32°
+                <span class="forecast-max-temp">${Math.round(
+                  forecastDay.temp.max
+                )}°</span> ${Math.round(forecastDay.temp.min)}°
               </div>
             </div>
           `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -156,4 +165,13 @@ function getForecast(coordinates) {
   let apiKey = "9d6c954e679111c7fc0e3c0db6771c74";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
+}
+
+function formatDay(timestamp) {
+  //changing timestamp numbers to day names
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
 }
