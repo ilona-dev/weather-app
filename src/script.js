@@ -37,14 +37,19 @@ dateElement.innerHTML = formatDate(now);
 
 function changeCity(event) {
   event.preventDefault();
-  let key = "9d6c954e679111c7fc0e3c0db6771c74";
+
   let cityElement = document.querySelector("#input-search-city").value;
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityElement}&appid=${key}&units=metric`;
-  axios.get(url).then(displayWeather); //put axios script in head
+  search(cityElement);
 }
 
 let searchCityForm = document.querySelector("#search-form");
 searchCityForm = addEventListener("submit", changeCity);
+
+function search(city) {
+  let key = "9d6c954e679111c7fc0e3c0db6771c74";
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
+  axios.get(url).then(displayWeather); //put axios script in head
+}
 
 // display weather conditions
 function displayWeather(response) {
@@ -148,3 +153,4 @@ function formatDay(timestamp) {
 
   return days[day];
 }
+search("Playa del Carmen");
