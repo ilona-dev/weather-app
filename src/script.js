@@ -96,33 +96,6 @@ function searchLocation(event) {
 let myLocationBtn = document.querySelector("#geolocation-btn"); //1
 myLocationBtn = addEventListener("submit", searchLocation);
 
-//fahrenheit conversion
-
-function displayFahrenheitTemp(event) {
-  event.preventDefault();
-  fahrenheitLink.classList.add("active");
-  celsiusLink.classList.remove("active");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  let temperatureElement = document.querySelector("#today-temperature");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-function displayCelsiusTemp(event) {
-  event.preventDefault();
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
-  let temperatureElement = document.querySelector("#today-temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemp);
-
-let celsiusTemperature = null; //preventing a bug - if the link clicked multiple times
-
 function displayForecast(response) {
   let forecast = response.data.daily; //response of API stored in variable
   //putting loop of html div col-2 through arrray and function
@@ -149,7 +122,7 @@ function displayForecast(response) {
               <div class="temp">
                 <span class="forecast-max-temp">${Math.round(
                   forecastDay.temp.max
-                )}°</span> ${Math.round(forecastDay.temp.min)}°
+                )}°  </span> ${Math.round(forecastDay.temp.min)}°
               </div>
             </div>
           `;

@@ -14,7 +14,7 @@ body {
 .today-temp {
   text-align: center;
   font-size: 45px;
-  color: rgb(0, 89, 255);
+  color: rgb(43, 43, 43);
   margin: 20px 0px 30px 0px;
   text-align: center;
   font-weight: 400;
@@ -93,16 +93,7 @@ body {
   text-decoration: none;
   font-size: 16px;
   position: relative;
-  transition: ease-in-out;
   top: -20px;
-}
-.f-unit,
-.c-unit {
-  text-decoration: none;
-}
-.f-unit:hover,
-.c-unit:hover {
-  color: purple;
 }
 .geolocation-btn:hover {
   background-color: rgb(44, 100, 204);
