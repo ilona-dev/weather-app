@@ -21,54 +21,56 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
-        <form>
-          <div class="row" id="search-form">
-            <input
-              type="search"
-              placeholder="Type a city..."
-              class="col-7 form-field"
-              id="input-search-city"
-            />
-            <input type="submit" value="Search" class="col-2 form-btn" />
-            <input type="submit" value="GPS" class="col-2 geolocation-btn" />
-          </div>
-        </form>
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <form>
+            <div class="row" id="search-form">
+              <input
+                type="search"
+                placeholder="Type a city..."
+                class="col-7 form-field"
+                id="input-search-city"
+              />
+              <input type="submit" value="Search" class="col-2 form-btn" />
+              <input type="submit" value="GPS" class="col-2 geolocation-btn" />
+            </div>
+          </form>
 
-        <div class="row">
-          <div class="col pdc-day">
-            <h1 id="city">How´s out there?</h1>
-            <span id="country"> </span>
-            <h2>Last updated: <span id="current-date">Saturday</span></h2>
-            <div class="row">
-              <div class="col-6 weather-details">
-                <div id="description"></div>
-                Humidity:
-                <span id="humidity"> </span>% <br />
-                Wind:
-                <span id="wind"> </span> m/s
-              </div>
-              <div class="col-6 today-temp">
-                <img
-                  src="http://openweathermap.org/img/wn/02d@2x.png"
-                  alt="weather-icon"
-                  id="icon"
-                />
-                <br />
-                <span id="today-temperature"> </span>
+          <div class="row">
+            <div class="col pdc-day">
+              <h1 id="city">Playa del Carmen</h1>
+              <span id="country"> </span>
+              <h2>Last updated: <span id="current-date">Saturday</span></h2>
+              <div class="row">
+                <div class="col-6 weather-details">
+                  <div id="description"></div>
+                  Humidity:
+                  <span id="humidity"> </span>% <br />
+                  Wind:
+                  <span id="wind"> </span> m/s
+                </div>
+                <div class="col-6 today-temp">
+                  <img
+                    src="http://openweathermap.org/img/wn/02d@2x.png"
+                    alt="weather-icon"
+                    id="icon"
+                  />
+                  <br />
+                  <span id="today-temperature"> </span>
 
-                <span class="units">°C</span>
+                  <span class="units">°C</span>
+                </div>
               </div>
             </div>
           </div>
+          <div id="weather-forecast"></div>
         </div>
-        <div id="weather-forecast"></div>
+        <p class="info">
+          This project was coded by
+          <a href="https://www.illishub.com">Ilona</a>. Open sourced on
+          <a href="https://github.com/ilona-dev/weather-app">GitHub</a>.
+        </p>
       </div>
-      <p class="info">
-        This project was coded by
-        <a href="https://www.illishub.com">Ilona</a>. Open sourced on
-        <a href="https://github.com/ilona-dev/weather-app">GitHub</a>.
-      </p>
     </div>
     <script src="src/script.js"></script>
   </body>

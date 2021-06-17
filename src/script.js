@@ -12,11 +12,11 @@ function formatDate(now) {
   ];
   let day = days[now.getDay()];
 
-  let hours = now.getHours(); //it returns only 1 digit number, e.g. 2 instead of 02 >> create if statement
+  let hours = now.getHours(); //returning 2-digit number(01-09)
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  let minutes = now.getMinutes(); //same thing as hours - it would return 14:5 instead of 14:05 >> if statement
+  let minutes = now.getMinutes(); //returning 2-digit number in minutes(01-09)
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
@@ -30,7 +30,7 @@ function formatDay(timestamp) {
 }
 
 let now = new Date();
-let dateElement = document.querySelector("#current-date"); //use IDs, not elements!
+let dateElement = document.querySelector("#current-date");
 dateElement.innerHTML = formatDate(now);
 
 // retrieve data from searched city
@@ -42,16 +42,17 @@ function changeCity(event) {
   search(cityElement);
 }
 
-let searchCityForm = document.querySelector("#search-form");
-searchCityForm = addEventListener("submit", changeCity);
-
 function search(city) {
   let key = "9d6c954e679111c7fc0e3c0db6771c74";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
-  axios.get(url).then(displayWeather); //put axios script in head
+  axios.get(url).then(displayWeather);
 }
 
+let searchCityForm = document.querySelector("#search-form");
+searchCityForm = addEventListener("submit", changeCity);
+
 // display weather conditions
+
 function displayWeather(response) {
   document.querySelector(`#city`).innerHTML = response.data.name;
   document.querySelector(`#country`).innerHTML = response.data.sys.country;
@@ -67,12 +68,13 @@ function displayWeather(response) {
   );
   celsiusTemperature = response.data.main.temp;
 
-  //icon
+  //icon of current weather
+
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  ); //necessary to change code attribute 01d
+  );
 
   iconElement.setAttribute(
     "alt",
@@ -83,27 +85,27 @@ function displayWeather(response) {
 }
 
 //geolocation
+
 function showPosition(positon) {
-  //5
   let apiKey = "9d6c954e679111c7fc0e3c0db6771c74";
   let lat = positon.coords.latitude;
   let lon = positon.coords.longitude;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayWeather); //same API call as previous task - calling function again that is build above
+  axios.get(apiUrl).then(displayWeather);
 }
 
 function searchLocation(event) {
-  //2
-  event.preventDefault(); //3
-  navigator.geolocation.getCurrentPosition(showPosition); //4
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(showPosition);
 }
 
-let myLocationBtn = document.querySelector("#geolocation-btn"); //1
+let myLocationBtn = document.querySelector("#geolocation-btn");
 myLocationBtn = addEventListener("submit", searchLocation);
 
+//forecast functions
+
 function displayForecast(response) {
-  let forecast = response.data.daily; //response of API stored in variable
-  //putting loop of html div col-2 through arrray and function
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#weather-forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -111,7 +113,7 @@ function displayForecast(response) {
   forecast.forEach(function (forecastDay, index) {
     //looping through forecast variable (originally array of 8 upcoming days)
     if (index < 6) {
-      //displaying only 6 days forecast
+      //displaying  6 days forecast
       forecastHTML =
         forecastHTML +
         `
