@@ -16,11 +16,11 @@ body {
 html,
 body {
   height: 100%;
-  max-width: 100%;
 }
 img {
-  text-align: center;
-  width: 80px;
+  max-width: 16vmax;
+  display: block;
+  margin: auto;
 }
 .weather-app {
   border: solid 1px #afb1b4;
@@ -32,6 +32,7 @@ img {
 .weather-app-wrapper,
 .weather-app {
   width: 500px;
+  max-width: 100%;
   margin: auto;
   display: block;
   margin-top: 30px;
@@ -40,6 +41,7 @@ img {
   display: inline;
   padding: 5px 12px;
   margin: 12px 0px 12px 12px;
+  max-width: 50%;
   font-size: 1rem;
   font-weight: 400;
   color: #212529;
@@ -53,7 +55,7 @@ img {
 .geolocation-btn {
   display: inline;
   padding: 5px 12px;
-  margin: 12px 12px 12px 0px;
+  margin: 12px 6px 12px 0px;
   font-size: 1rem;
   font-weight: 400;
   border: 1px solid #ced4da;
@@ -64,6 +66,7 @@ img {
 .form-btn {
   color: #212529;
   background-color: #fff;
+  min-width: 4rem;
 }
 .geolocation-btn {
   color: #ffffff;
@@ -73,10 +76,10 @@ img {
   text-align: center;
   font-size: 45px;
   color: rgb(43, 43, 43);
-  margin: 20px 0px 30px 0px;
+  margin: 20px 0px 40px 0px;
   text-align: center;
   font-weight: 400;
-  line-height: 1em;
+  line-height: 0.5em;
 }
 .units {
   text-decoration: none;
@@ -118,7 +121,10 @@ img {
 
 .forecast-icon {
   text-align: center;
-  font-size: 10px;
+  width: 60px;
+  max-width: 3em;
+  display: block;
+  margin: auto;
 }
 .info {
   font-size: 12px;
@@ -134,4 +140,7 @@ img {
 }
 #description:first-letter {
   text-transform: capitalize;
+}
+.today-icon {
+  margin-left: 40px;
 }
